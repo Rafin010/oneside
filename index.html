@@ -45,12 +45,11 @@
     50% { transform: translateY(-10px) rotate(1.5deg); }
     100% { transform: translateY(0) rotate(-1deg); }
   }
-
-  /* খামের মূল অংশ */
-  #envelope {
+/* খামের মূল অংশ */
+#envelope {
     width: 100%;
     height: 100%;
-    background-image: url('https://i.imghippo.com/files/Ujt3709NlQ.png');
+    background-image: url('https://i.imghippo.com/files/Ujt3709NlQ.png  ');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -58,15 +57,19 @@
     bottom: 0;
     left: 0;
     z-index: 1;
-  }
+    /* এই খামটিকে আরও নিচে নামিয়ে দিন */
+    transform: translateY(40px); /* আপনি চাইলে এই মান পরিবর্তন করতে পারেন */
+}
+
 
   /* ফ্ল্যাপ (original image includes the flap) */
   #flap {
     display: none;
   }
 
+  /*---------------- খাম থেকে বের হওয়া চিঠি এর ----------------- */
   #letter {
-    display: block;
+    display: block; 
     opacity: 0;
     width: 80%;
     max-width: 260px;
@@ -75,7 +78,7 @@
     padding: 15px;
     text-align: center;
     position: absolute;
-    top: 10px;
+    top: 50%;
     left: 50%;
     transform: translateX(-50%) scale(0.8);
     z-index: 2;
@@ -85,6 +88,7 @@
     border: 1px solid #E0D6B3;
   }
 
+  
   #envelope-container.open #letter {
     opacity: 1;
     top: -180px;
@@ -172,7 +176,7 @@
       height: 70px;
     }
   }
-
+    
   /* Prevent text selection on tap */
   * {
     -webkit-tap-highlight-color: transparent;
@@ -180,7 +184,6 @@
     -webkit-user-select: none;
     user-select: none;
   }
-  
   /* Audio controls styling */
   .audio-controls {
     position: fixed;
@@ -306,11 +309,7 @@
       setTimeout(() => drop.remove(), 6000);
     }
     
-    // Continue raining periodically
-    if (isOpened) {
-      setTimeout(createRain, 3000);
-    }
-  }
+
   
   // Handle mobile viewport height
   function adjustViewportHeight() {
